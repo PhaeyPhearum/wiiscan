@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, Leaf, Scan, Sparkles } from 'lucide-react';
+import { Menu, Leaf, Scan, PawPrint } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -52,10 +52,16 @@ export function Navbar({ onModeChange, currentMode }: NavbarProps) {
   };
 
   const socialLinks = [
-    { icon: TwitterIcon, href: 'https://x.com/', label: 'X (Twitter)' },
-    { icon: GitHubIcon, href: 'https://github.com/', label: 'GitHub' },
+    { icon: TwitterIcon, href: 'https://x.com/WiiScanApp', label: 'X (Twitter)' },
+    { icon: GitHubIcon, href: 'https://github.com/wiiscan', label: 'GitHub' },
     { icon: DexScreenerIcon, href: 'https://dexscreener.com/', label: 'DexScreener' },
-    { icon: TelegramIcon, href: 'https://t.me/', label: 'Telegram' },
+    { icon: TelegramIcon, href: 'https://t.me/wiiscan', label: 'Telegram' },
+  ];
+
+  const navigationItems = [
+    { mode: 'skin', icon: Scan, label: 'Skin Analysis' },
+    { mode: 'plant', icon: Leaf, label: 'Plant ID' },
+    { mode: 'animal', icon: PawPrint, label: 'Animal ID' }
   ];
 
   return (
@@ -92,11 +98,7 @@ export function Navbar({ onModeChange, currentMode }: NavbarProps) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:justify-center flex-1 px-4">
             <div className="flex space-x-2">
-              {[
-                { mode: 'plant', icon: Leaf, label: 'Plant ID' },
-                { mode: 'animal', icon: Sparkles, label: 'Animal ID' },
-                { mode: 'skin', icon: Scan, label: 'Skin Analysis' }
-              ].map(({ mode, icon: Icon, label }) => (
+              {navigationItems.map(({ mode, icon: Icon, label }) => (
                 <motion.button
                   key={mode}
                   onClick={() => handleModeChange(mode as 'plant' | 'animal' | 'skin')}
@@ -168,11 +170,7 @@ export function Navbar({ onModeChange, currentMode }: NavbarProps) {
             className="md:hidden border-t border-border/10 bg-background/95 backdrop-blur-lg"
           >
             <div className="px-3 pt-3 pb-4 space-y-2">
-              {[
-                { mode: 'plant', icon: Leaf, label: 'Plant ID' },
-                { mode: 'animal', icon: Sparkles, label: 'Animal ID' },
-                { mode: 'skin', icon: Scan, label: 'Skin Analysis' }
-              ].map(({ mode, icon: Icon, label }) => (
+              {navigationItems.map(({ mode, icon: Icon, label }) => (
                 <motion.button
                   key={mode}
                   onClick={() => handleModeChange(mode as 'plant' | 'animal' | 'skin')}

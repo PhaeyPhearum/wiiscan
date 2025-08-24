@@ -29,8 +29,8 @@ function App() {
   const [plantInfo, setPlantInfo] = useState<PlantInfoType | null>(null);
   const [animalInfo, setAnimalInfo] = useState<AnimalInfoType | null>(null);
   const [skinInfo, setSkinInfo] = useState<SkinAnalysisType | null>(null);
-  const [mode, setMode] = useState<'plant' | 'animal' | 'skin'>('plant');
-  const [previewImage, setPreviewImage] = useState<DefaultImageType | string>(DEFAULT_IMAGES.plant);
+  const [mode, setMode] = useState<'plant' | 'animal' | 'skin'>('skin');
+  const [previewImage, setPreviewImage] = useState<DefaultImageType | string>(DEFAULT_IMAGES.skin);
   const [showScrollButton, setShowScrollButton] = useState(false);
   
   const uploadSectionRef = useRef<HTMLDivElement>(null);
@@ -200,7 +200,7 @@ function App() {
           </div>
 
           <div className="flex justify-center gap-4 mb-8">
-            {(['plant', 'animal', 'skin'] as const).map((type) => (
+            {(['skin', 'plant', 'animal'] as const).map((type) => (
               <motion.button
                 key={type}
                 type="button"
