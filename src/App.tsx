@@ -269,6 +269,7 @@ function App() {
               {skinInfo && mode === 'skin' && <SkinResult info={skinInfo} />}
             </AnimatePresence>
           </div>
+        <div className="overflow-x-auto border-color-[hsla(45, 92%, 57%, 0.3)] border-2 border-dashed rounded-lg p-3 text-center mt-6"><small>5Lp5LefyzdgWWMj5AiSC4EmmbAYyEVRNvjcSNGbqpump</small></div>
         </motion.div>
       </main>
 
